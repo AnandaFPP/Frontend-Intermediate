@@ -1,0 +1,116 @@
+/* @font-face {
+  font-family: "Metropolis";
+  src: url(/assets/font/metropolis.regular.otf);
+} */
+
+body {
+    font-family: "Metropolis";
+    overflow-x: hidden;
+  }
+
+  .rounded-pill {
+    width: 100px;
+  }
+
+  .container {
+    margin-top: 5px;
+  }
+
+  .carousel {
+    width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+  }
+
+  .input {
+    width: 50vh;
+    border-radius: 20px;
+  }
+
+  p {
+    color: #9b9b9b;
+  }
+
+  .search-logo {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 367px;
+  }
+
+  .filter-logo {
+    border: 1px #8e8e93 solid;
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  a:link,
+  a:visited {
+    text-decoration: none !important;
+    color: black;
+    cursor: pointer !important;
+  }
+
+  .cart {
+    font-size: 20px;
+    margin-right: 24px;
+    color: #8e8e93;
+  }
+
+  .bell {
+    font-size: 20px;
+    margin-right: 24px;
+    color: #8e8e93;
+  }
+
+  .message {
+    font-size: 20px;
+    margin-right: 24px;
+    color: #8e8e93;
+  }
+
+  .profile {
+    font-size: 20px;
+    margin-right: 24px;
+    color: #8e8e93;
+  }
+
+  .price {
+    font-size: 30px;
+    margin-top: -20px;
+    font-weight: bold;
+    color: black;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .category {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .squer {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .search-logo {
+      display: none;
+    }
+
+    .input {
+      width: 100%;
+    }
+  }
+
+  a:link,
+  a:visited {
+    text-decoration: none !important;
+    color: black;
+    cursor: pointer !important;
+  }
+
+  .navbar {
+    box-shadow: 0px 6px 40px 20px rgba(173, 173, 173, 0.25);
+  }
