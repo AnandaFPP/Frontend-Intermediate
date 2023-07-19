@@ -1,27 +1,19 @@
-import axios from "axios";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useDispatch } from "react-redux";
+import deleteProductAction from "../../config/redux/action/deleteProductAction";
+
 
 function ModalDelete({id, children}) {
+  const dispatch = useDispatch()
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   let handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .delete(`http://localhost:8000/products/${id}`)
-      .then((res) => {
-        console.log(res);
-        alert("Product deleted!");
-        setShow(false);
-        window.location.reload();
-      })
-      .catch((err) => {
-        alert(err);
-        setShow(false);
-      });
+    dispatch(deleteProductAction(id, setShow));
   };
 
   return (
@@ -42,7 +34,7 @@ function ModalDelete({id, children}) {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-danger">
               {children}
             </button>
           </Modal.Footer>

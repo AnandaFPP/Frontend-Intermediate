@@ -11,7 +11,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -19,7 +19,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -27,7 +27,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -35,7 +35,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -51,7 +51,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -67,7 +67,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -83,7 +83,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -99,7 +99,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -115,7 +115,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -131,7 +131,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -147,7 +147,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -155,7 +155,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -163,7 +163,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -171,7 +171,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -179,7 +179,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>
@@ -187,7 +187,7 @@ const Populer = () => {
             <div className="border rounded product">
               <img
                 className="w-100"
-                src={require("../image/clothes.png")}
+                src={require("../assets/image/clothes.png")}
                 alt="cloth"
               />
               <div className="p-2">
@@ -195,7 +195,7 @@ const Populer = () => {
                   Men's formal suit - Black &amp; White
                 </h5>
                 <h5 className="text-danger">Rp.250.000</h5>
-                <img src={require("../image/rating.png")} alt="stars" />
+                <img src={require("../assets/image/rating.png")} alt="stars" />
               </div>
             </div>
           </div>

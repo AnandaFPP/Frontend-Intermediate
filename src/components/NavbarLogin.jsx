@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavbarLogin = () => {
+  
   return (
     <>
       <style>
@@ -60,16 +62,19 @@ const NavbarLogin = () => {
         .product {"{"}
         width: 100%;
         {"}"}
+        .navbar {"{"}
+        position: relative; z-index: 1;
+        {"}"}
       </style>
-      <nav className="navbar navbar-expand-lg navbar-light">
+      <nav className="navbar fixed-top navbar-expand-lg navbar-light">
         <div className="container">
-          <a href="index.html">
+          <Link to="/home">
             <img
               className="logo mr-4"
-              src={require("../image/logo.png")}
+              src={require("../assets/image/logo.png")}
               alt="logo"
             />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -96,7 +101,7 @@ const NavbarLogin = () => {
                   />
                   <img
                     className="search-logo"
-                    src={require("../image/Search Glyph.png")}
+                    src={require("../assets/image/Search Glyph.png")}
                     alt=""
                   />
                 </form>
@@ -104,40 +109,45 @@ const NavbarLogin = () => {
               <li className="nav-item squer">
                 <img
                   className="filter-logo"
-                  src={require("../image/filter.jpg")}
+                  src={require("../assets/image/filter.jpg")}
                   alt="filter"
                 />
               </li>
             </ul>
             <form className="form-inline my-2 my-lg-0 row justify-content-center">
+                <a
+                  href="/order"
+                  className="text"
+                  style={{ padding: "0 15px", color: "#8e8e93" }}
+                >
+                  <i className="bi bi-cart2" />
+                </a>
               <a
-                href="/pages/order.html"
-                className="text"
-                style={{ padding: "0 15px", color: "#8e8e93" }}
-              >
-                <i className="bi bi-cart2" />
-              </a>
-              <a
-                href="#"
+                href="/"
                 className="text"
                 style={{ padding: "0 15px", color: "#8e8e93" }}
               >
                 <i className="bi bi-bell" />
               </a>
               <a
-                href="#"
+                href="/"
                 className="text"
                 style={{ padding: "0 15px", color: "#8e8e93" }}
               >
                 <i className="bi bi-envelope" />
               </a>
-              <a
-                href="/pages/login.html"
-                className="text"
-                style={{ padding: "0 15px", color: "#8e8e93" }}
-              >
-                <img src={require("../image/PhotoPf.png")} alt="" />
-              </a>
+              <Link to="/profile">
+                <a
+                  href="/"
+                  className="text"
+                  style={{ padding: "0 15px", color: "#8e8e93" }}
+                >
+                  <img src={require("../assets/image/PhotoPf.png")} alt="" />
+                </a>
+              </Link>
+              <button className="btn btn-danger rounded-pill" onClick={(e) => localStorage.removeItem("token")}>
+                Log out
+              </button>
             </form>
           </div>
         </div>

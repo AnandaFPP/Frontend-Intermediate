@@ -24,21 +24,21 @@ const Carousel = () => {
             <div className="carousel-inner">
               <div className="carousel-item active col-12">
                 <img
-                  src={require("../image/promotionCard.png")}
+                  src={require("../assets/image/promotionCard.png")}
                   className="w-100"
                   alt="Promotion"
                 />
               </div>
               <div className="carousel-item col-12">
                 <img
-                  src={require("../image/promotionCard2.png")}
+                  src={require("../assets/image/promotionCard2.png")}
                   className="w-100"
                   alt="Promotion2"
                 />
               </div>
               <div className="carousel-item col-12">
                 <img
-                  src={require("../image/promotionCard.png")}
+                  src={require("../assets/image/promotionCard.png")}
                   className="w-100"
                   alt="Promotion"
                 />

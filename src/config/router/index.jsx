@@ -1,28 +1,21 @@
 import React from 'react'
-import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import Home from '../../pages/Home'
 import Login from '../../pages/Auth/Login'
 import Register from '../../pages/Auth/Register'
+import Reset from '../../pages/Auth/Reset'
 import Order from '../../pages/Order'
-import Checkout from '../../pages/Checkout'
+import Checkout from '../../pages/Checkout/Checkout'
 import Page404 from '../../pages/Page404'
-import Detail from '../../pages/Detail'
+import Detail from '../../pages/Detail/Detail'
 import Product from '../../pages/Product'
+import Profile from '../../pages/Profile/Profile'
+import ProfileSeller from '../../pages/ProfileSeller/ProfileSeller'
 
 const Router = () => {
   return (
     <>
         <BrowserRouter>
-            {/* <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/home'>Home</Link></li>
-                <li><Link to='/product'>Products</Link></li>
-                <li><Link to='/product/1'>Detail</Link></li>
-                <li><Link to='/login'>Login</Link></li>
-                <li><Link to='/register'>Register</Link></li>
-                <li><Link to='/order'>Order</Link></li>
-                <li><Link to='/checkout'>Checkout</Link></li>
-            </ul> */}
             <Routes>
               <Route path='/' element={<Navigate to="/home" replace="true"/>}/>
               <Route path='/home' element={<Home/>}/>
@@ -30,6 +23,9 @@ const Router = () => {
               <Route path='/product/:id' element={<Detail/>}/>
               <Route path='/login' element={<Login/>}/>
               <Route path='/register' element={<Register/>}/>
+              <Route path='/reset' element={<Reset/>}/>
+              <Route path='/profile' element={<Profile/>}/>
+              <Route path='/seller' element={<ProfileSeller/>}/>
               <Route path='/order' element={<Order/>}/>
               <Route path='/checkout' element={<Checkout/>}/>
               <Route path='/*' element={<Page404/>}/>

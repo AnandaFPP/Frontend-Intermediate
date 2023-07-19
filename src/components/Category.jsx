@@ -6,7 +6,7 @@ const Category = () => {
     <style>
       
     </style>
-      <section className="mt-5">
+      <section className="mt-5 metropolis">
         <div className="container">
           <h2 style={{ fontWeight: "bold" }}>Category</h2>
           <p className="">What are you currently looking for?</p>
@@ -15,7 +15,7 @@ const Category = () => {
               <div>
                 <img
                   className="category"
-                  src={require("../image/pants.png")}
+                  src={require("../assets/image/pants.png")}
                   alt="pants"
                 />
               </div>
@@ -24,7 +24,7 @@ const Category = () => {
               <div>
                 <img
                   className="category"
-                  src={require("../image/jacket.png")}
+                  src={require("../assets/image/jacket.png")}
                   alt="jacket"
                 />
               </div>
@@ -33,7 +33,7 @@ const Category = () => {
               <div>
                 <img
                   className="category"
-                  src={require("../image/shorts.png")}
+                  src={require("../assets/image/shorts.png")}
                   alt="shorts"
                 />
               </div>
@@ -42,7 +42,7 @@ const Category = () => {
               <div>
                 <img
                   className="category"
-                  src={require("../image/tshirt.png")}
+                  src={require("../assets/image/tshirt.png")}
                   alt="t-shirt"
                 />
               </div>

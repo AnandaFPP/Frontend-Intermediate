@@ -1,7 +1,12 @@
-/* @font-face {
-  font-family: "Metropolis";
-  src: url(/assets/font/metropolis.regular.otf);
-} */
+@font-face{
+  font-family: Metropolis;
+  src: url(../src/assets/font/metropolis.regular.otf);
+}
+
+.metropolis {
+  font-family: Metropolis;
+  color: rgb(5, 5, 5);
+}
 
 body {
     font-family: "Metropolis";
@@ -14,6 +19,7 @@ body {
 
   .container {
     margin-top: 5px;
+    font-family: Metropolis;
   }
 
   .carousel {

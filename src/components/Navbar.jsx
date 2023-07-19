@@ -6,10 +6,6 @@ const Navbar = () => {
   return (
     <>
       <style>
-        /* @font-face {"{"}
-        font-family: "Metropolis"; src:
-        url(/assets/font/metropolis.regular.otf);
-        {"}"} */ body {"{"}
         font-family: "Metropolis"; overflow-x: hidden;
         {"}"}
         .rounded-pill {"{"}
@@ -78,13 +74,15 @@ const Navbar = () => {
       </style>
       <nav className="navbar fixed-top bg-light navbar-expand-lg navbar-light ">
         <div className="container ">
-          <a href="index.html">
-            <img
-              className="logo mr-4"
-              src={require("../image/logo.png")}
-              alt="logo"
-            />
-          </a>
+          <Link to="/home">
+            <a href="index.html">
+              <img
+                className="logo mr-4"
+                src={require("../assets/image/logo.png")}
+                alt="logo"
+              />
+            </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -112,7 +110,7 @@ const Navbar = () => {
                   />
                   <img
                     className="search-logo"
-                    src={require("../image/Search Glyph.png")}
+                    src={require("../assets/image/Search Glyph.png")}
                     alt=""
                   />
                 </form>
@@ -120,20 +118,21 @@ const Navbar = () => {
               <li className="nav-item squer">
                 <img
                   className="filter-logo"
-                  src={require("../image/filter.jpg")}
+                  src={require("../assets/image/filter.jpg")}
                   alt="filter"
                 />
               </li>
             </ul>
             <form className="form-inline my-2 my-lg-0 row justify-content-center">
-              <a href="/pages/order.html">
-                <img
-                  className="mr-5"
-                  src={require("../image/shopping-cart.png")}
-                  alt="cart"
-                />
-              </a>
-
+              <Link to="/order">
+                <a href="/pages/order.html">
+                  <img
+                    className="mr-5"
+                    src={require("../assets/image/shopping-cart.png")}
+                    alt="cart"
+                  />
+                </a>
+              </Link>
               <Link to="/login">
                 <button className="btn btn-danger rounded-pill mr-3 text-light">
                   Login

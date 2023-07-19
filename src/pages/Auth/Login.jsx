@@ -1,7 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 const Login = () => {
+  let [email, setEmail] = useState('');
+  let [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  let handleLogin = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:8000/users/login", {email, password})
+      .then((res) => {
+        console.log(res);
+        swal({
+          title: "Login successful!",
+          icon: "success",
+          button: "Continue",
+        });
+
+        localStorage.setItem("token", res.data.data.token);
+        navigate("/home");
+        // window.location.reload();
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
+
   return (
     <>
       <style>
@@ -28,9 +56,12 @@ const Login = () => {
         {"}"}
       </style>
       <div className="container">
-        <img src={require("../../image/logo.png")} alt="Logo" />
-        <p className="text-center py-3" style={{ fontWeight: "bold", color: "black" }}>
-          Please sign up with your account
+        <img src={require("../../assets/image/logo.png")} alt="Logo" />
+        <p
+          className="text-center py-3"
+          style={{ fontWeight: "bold", color: "black" }}
+        >
+          Please login with your account
         </p>
         <ul
           className="nav nav-pills mb-3 justify-content-center"
@@ -56,12 +87,12 @@ const Login = () => {
           <li className="nav-item" role="presentation">
             <button
               className="nav-link"
-              id="pills-seller-tab"
+              id="pills-home-tab"
               data-toggle="pill"
-              data-target="#pills-seller"
+              data-target="#pills-home"
               type="button"
               role="tab"
-              aria-controls="pills-seller"
+              aria-controls="pills-home"
               aria-selected="false"
             >
               Seller
@@ -80,13 +111,15 @@ const Login = () => {
             role="tabpanel"
             aria-labelledby="pills-home-tab"
           >
-            <form>
+            <form onSubmit={handleLogin}>
               <div className="form-group">
                 <input
                   name=""
                   type="text"
                   className="form-control"
                   placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -95,47 +128,29 @@ const Login = () => {
                   type="text"
                   className="form-control"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+              <button className="btn btn-danger btn-block rounded-pill">
+                <a href="/src/pages/Home.jsx"> Primary </a>
+              </button>
             </form>
           </div>
           {/* Seller */}
-          <div
-            className="tab-pane fade"
-            id="pills-seller"
-            role="tabpanel"
-            aria-labelledby="pills-seller-tab"
-          >
-            <form>
-              <div className="form-group">
-                <input
-                  name=""
-                  type="text"
-                  className="form-control"
-                  placeholder="Email"
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  name=""
-                  type="text"
-                  className="form-control"
-                  placeholder="Password"
-                />
-              </div>
-            </form>
-          </div>
-          <div className="form-group">
-            <a href="#" className="float-right py-3 text-danger">
-              Forgot password?
-            </a>
-            <button className="btn btn-danger btn-block rounded-pill">
-              <a href="../index.html"> Primary </a>
-            </button>
+          <div className="form-group row d-flex flex-row-reverse mt-3 mr-2">
+            <Link to="/reset">
+              <a
+                href="/src/pages/Auth/Reset.jsx"
+                className="text-danger border"
+              >
+                Forgot password?
+              </a>
+            </Link>
             <p className="text-regis">
               Don't have a Tokopedia account?
-              <Link to='/register'>
-                <a href="" className="text-danger">
+              <Link to="/register">
+                <a href="/src/pages/Auth/Register.jsx" className="text-danger">
                   {" "}
                   Register{" "}
                 </a>

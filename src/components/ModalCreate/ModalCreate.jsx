@@ -1,18 +1,20 @@
-import axios from "axios";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useDispatch } from "react-redux";
+import createProductAction from "../../config/redux/action/createProductAction";
 
-function ModalUpdate({id, name, stock, price, description, children}) {
+function ModalCreate() {
+  const dispatch = useDispatch()
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   let [data, setData] = useState({
-    name,
-    stock,
-    price,
-    description,
+    name: "",
+    stock: "",
+    price: "",
+    description: "",
   });
 
   let [photo, setPhoto] = useState(null);
@@ -31,39 +33,18 @@ function ModalUpdate({id, name, stock, price, description, children}) {
 
   let handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("stock", data.stock);
-    formData.append("price", data.price);
-    formData.append("photo", photo);
-    formData.append("description", data.description);
-    axios
-      .put(`http://localhost:8000/products/${id}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        alert("Product updated!");
-        setShow(false);
-        window.location.reload();
-      })
-      .catch((err) => {
-        alert(err);
-        setShow(false);
-      });
+    dispatch(createProductAction(data, photo))
   };
 
   return (
     <>
-      <Button variant="warning" onClick={handleShow} className="ml-2 mr-2">
-        {children}
+      <Button variant="secondary" onClick={handleShow} className="mt-2">
+        Create
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Update Product</Modal.Title>
+          <Modal.Title>Create Product</Modal.Title>
         </Modal.Header>
         <form onSubmit={handleSubmit}>
           <Modal.Body>
@@ -112,8 +93,8 @@ function ModalUpdate({id, name, stock, price, description, children}) {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <button type="submit" className="btn btn-primary">
-              {children}
+            <button type="submit" className="btn btn-danger">
+              Create
             </button>
           </Modal.Footer>
         </form>
@@ -122,4 +103,4 @@ function ModalUpdate({id, name, stock, price, description, children}) {
   );
 }
 
-export default ModalUpdate;
+export default ModalCreate;

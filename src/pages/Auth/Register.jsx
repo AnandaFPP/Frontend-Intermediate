@@ -1,53 +1,34 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
 
-  let [customer, setCustomer] = useState({
+  let [data, setData] = useState({
     fullname: "",
     email: "",
     password: "",
-    phone: ""
+    role: ""
   })
+  
+  const navigate = useNavigate();
 
-  let [seller, setSeller] = useState({
-    fullname: "",
-    email: "",
-    store: "",
-    password: "",
-    address:"",
-    phone: ""
-  })
-
-  let onChangeCustomer = (e) => {
-    setCustomer({
-      ...customer,
+  let handleChange = (e) => {
+    setData({
+      ...data,
       [e.target.name]: e.target.value
     })
-    console.log(customer)
-  }
+  };
 
-  let onChangeSeller = (e) => {
-    setSeller({
-      ...seller,
-      [e.target.name]: e.target.value
-    })
-    console.log(customer)
-  }
 
-  let onSubmitCustomer = (e) => {
+  let handleRegister = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("fullname", customer.name);
-    formData.append("email", customer.stock);
-    formData.append("password", customer.price);
-    formData.append("phone", customer.phone);
     axios
-      .post("http://localhost:8000/users/register", customer)
+      .post("http://localhost:8000/users/register", data)
       .then((res) => {
         console.log(res);
-        alert("Register successful as customer!");
+        alert("Register successful!");
+        navigate("/login");
         window.location.reload();
       })
       .catch((err) => {
@@ -80,178 +61,117 @@ const Register = () => {
         !important;
         {"}"}
       </style>
-      <div className="container">
-        <img src={require("../../image/logo.png")} alt="Logo" />
+      <div className="container metropolis">
+        <img src={require("../../assets/image/logo.png")} alt="Logo" />
         <p className="text-center py-3" style={{ fontWeight: "bold", color: "black" }}>
           Please sign up with your account
         </p>
-        <ul
-          className="nav nav-pills mb-3 justify-content-center"
-          id="pills-tab"
-          role="tablist"
-        >
-          {/* Customer */}
-          <li className="nav-item" role="presentation">
-            <button
-              className="nav-link active"
-              id="pills-home-tab"
-              data-toggle="pill"
-              data-target="#pills-home"
-              type="button"
-              role="tab"
-              aria-controls="pills-home"
-              aria-selected="true"
-            >
-              Customer
-            </button>
-          </li>
-          {/* Seller */}
-          <li className="nav-item" role="presentation">
-            <button
-              className="nav-link"
-              id="pills-seller-tab"
-              data-toggle="pill"
-              data-target="#pills-seller"
-              type="button"
-              role="tab"
-              aria-controls="pills-seller"
-              aria-selected="false"
-            >
-              Seller
-            </button>
-          </li>
-        </ul>
-        <div
-          className="tab-content"
-          id="pills-tabContent"
-          style={{ marginTop: 35 }}
-        >
-          {/* Customer */}
+        <div className="tab-content" id="myTabContent">
           <div
-            className="tab-pane fade show active"
-            id="pills-home"
+            className="tab-pane fade show active text-center"
+            id="customer"
             role="tabpanel"
-            aria-labelledby="pills-home-tab"
+            aria-labelledby="customer-tab"
           >
-            <form onSubmit={onSubmitCustomer}>
+            <form onSubmit={handleRegister}>
               <div className="form-group">
+                <div
+                  className="btn-group btn-group-toggle"
+                  data-toggle="buttons"
+                  value={data.role}
+                  onChange={handleChange}
+                >
+                  <label
+                    className="btn btn-secondary active"
+                    style={{
+                      backgroundColor: "#DB3022",
+                      borderColor: "#DB3022",
+                    }}
+                  >
+                    <input
+                      type="radio"
+                      name="role"
+                      id="option1"
+                      autoComplete="off"
+                      defaultChecked=""
+                      value={"customer"}
+                    />{" "}
+                    Customer
+                  </label>
+                  <label
+                    className="btn btn-secondary"
+                    style={{
+                      paddingLeft: "26px",
+                      paddingRight: "26px",
+                      backgroundColor: "#DB3022",
+                      borderColor: "#DB3022",
+                    }}
+                  >
+                    <input
+                      type="radio"
+                      name="role"
+                      id="option2"
+                      autoComplete="off"
+                      value={"seller"}
+                    />{" "}
+                    Seller
+                  </label>
+                </div>
+              </div>
+              <div className="form-group" style={{ height: 36 }}>
+                <label htmlFor="formGroupExampleInput" />
                 <input
-                  name="fullname"
                   type="text"
                   className="form-control"
-                  placeholder="Name"
-                  onChangeCustomer={onChangeCustomer}
+                  id="formGroupExampleInput"
+                  placeholder="Fullname"
+                  name="fullname"
+                  value={data.fullname}
+                  onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group" style={{ height: 36 }}>
+                <label htmlFor="formGroupExampleInput2" />
                 <input
-                  name="email"
                   type="email"
                   className="form-control"
+                  id="formGroupExampleInput2"
                   placeholder="Email"
-                  onChangeCustomer={onChangeCustomer}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  name="password"
-                  type="password"
-                  className="form-control"
-                  placeholder="Password"
-                  onChangeCustomer={onChangeCustomer}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  name="phone"
-                  type="text"
-                  className="form-control"
-                  placeholder="Phone number"
-                  onChangeCustomer={onChangeCustomer}
-                />
-              </div>
-            </form>
-          </div>
-          {/* Seller */}
-          <div
-            className="tab-pane fade"
-            id="pills-seller"
-            role="tabpanel"
-            aria-labelledby="pills-seller-tab"
-          >
-            <form>
-              <div className="form-group">
-                <input
-                  name="fullname"
-                  type="text"
-                  className="form-control"
-                  placeholder="Name"
-                  onChangeSeller={onChangeSeller}
-                />
-              </div>
-              <div className="form-group">
-                <input
                   name="email"
-                  type="text"
-                  className="form-control"
-                  placeholder="Email"
-                  onChangeSeller={onChangeSeller}
+                  value={data.email}
+                  onChange={handleChange}
                 />
               </div>
               <div className="form-group">
+                <label htmlFor="formGroupExampleInput2" />
                 <input
-                  name="store"
                   type="text"
                   className="form-control"
-                  placeholder="Store name"
-                  onChangeSeller={onChangeSeller}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  name="password"
-                  type="text"
-                  className="form-control"
+                  id="formGroupExampleInput2"
                   placeholder="Password"
-                  onChangeSeller={onChangeSeller}
+                  name="password"
+                  value={data.password}
+                  onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
-                <input
-                  name="address"
-                  type="text"
-                  className="form-control"
-                  placeholder="Address"
-                  onChangeSeller={onChangeSeller}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  name="phone"
-                  type="text"
-                  className="form-control"
-                  placeholder="Phone number"
-                  onChangeSeller={onChangeSeller}
-                />
+              <div className="form-group" style={{ marginTop: 50 }}>
+                <button
+                  type="submit"
+                  className="btn btn-danger btn-block rounded-pill"
+                  id="button-addon2"
+                  title="Register"
+                  style={{ backgroundColor: "#DB3022" }}
+                >
+                  PRIMARY
+                </button>
+                <p className="text-regis">
+                  Already have a Tokopedia account?
+                  <Link to={"/login"} className="text-danger">
+                    Login
+                  </Link>
+                </p>
               </div>
             </form>
-          </div>
-          <div className="form-group">
-            <button
-              className="btn btn-danger btn-block rounded-pill"
-              style={{ marginTop: 50 }}
-            >
-              <a href="../index.html"> Primary </a>
-            </button>
-            <p className="text-regis">
-              Already have tokopedia account?
-              <Link to="/login">
-                <a href="" className="text-danger">
-                  {" "}
-                  Login{" "}
-                </a>
-              </Link>
-            </p>
           </div>
         </div>
       </div>
